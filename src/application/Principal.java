@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+// AINDA NAO ORGANIZEI 
+
 public class Principal extends Application {
 	public Integer[] vet1 = new Integer[10]; // vetor primeiro numero
 	public Integer[] vet2 = new Integer[10]; // vetor segundo numero
@@ -18,7 +20,7 @@ public class Principal extends Application {
 	static int j = 1; // multiplicador decimais
 	public double v1; // numero 1
 	public double v2; // numero 2
-	public double dec; // decimal 
+	public double dec; // decimal
 	static double resFinal; // resultado final
 	public char op = 'x'; // opcoes sinal
 	public char varAtual = 'x'; // qual numero esta
@@ -127,6 +129,7 @@ public class Principal extends Application {
 					}
 					resFinal = v1 / v2;
 				}
+				
 				arg0.consume();
 			}
 		});
@@ -679,7 +682,14 @@ public class Principal extends Application {
 		butIgual.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				resp.setText("R: "+resFinal);
+				resp.setText("R: " + resFinal);
+				v1 = resFinal;
+				v2 = 0;
+				for (int i = 0; i < 10; i++) {
+					vet1[i] = null;
+					vet2[i] = null;
+					vetDec[i] = null;
+				}
 			}
 		});
 		butCE.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -689,7 +699,7 @@ public class Principal extends Application {
 				v2 = 0;
 				op = 'x';
 				varAtual = 'x';
-				for(int i = 0;i<10;i++) {
+				for (int i = 0; i < 10; i++) {
 					vet1[i] = null;
 					vet2[i] = null;
 					vetDec[i] = null;
@@ -734,4 +744,5 @@ public class Principal extends Application {
 		double res = x;
 		return res;
 	}
+
 }
